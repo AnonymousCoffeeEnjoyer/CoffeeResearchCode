@@ -95,7 +95,7 @@ Each run writes to its output directory:
 
 - `output.txt` training/validation/test logs
 - model checkpoints (`*.pt`)
-- label encoder artifacts (where applicable)
+- label encodings (`*.json`)
 
 <!-- ## Training
 
@@ -125,7 +125,7 @@ You can download pretrained models here:
 
 >📋  Give a link to where/how the pretrained models can be downloaded and how they were trained (if applicable).  Alternatively you can have an additional column in your results table with a link to the models. -->
 
-## Results
+<!-- ## Results
 
 Our model achieves the following performance on :
 
@@ -137,14 +137,13 @@ Our model achieves the following performance on :
 
 >📋  Include a table of results from your paper, and link back to the leaderboard for clarity and context. If your main result is a figure, include that figure and link to the command or notebook to reproduce it.
 
-## Contributing
+## Contributing -->
 
-
-(I'm not sure what to put in full name)
+## License
 
 MIT License
 
-Copyright (c) 2026 [fullname]
+Copyright (c) 2026 Anonymous Authors
 
 <!-- Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
