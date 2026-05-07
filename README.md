@@ -2,14 +2,14 @@
 
 This repository is the official implementation of [Coffee: Going beyond the next hit for OS prefetching](https://arxiv.org/abs/2030.12345).  (Need to update the link here)
 
-<!-- >📋  Optional: include a graphic explaining your approach/main result, bibtex entry, link to demos, blog posts and tutorials -->
-
 ## Requirements
 
-To install requirements:
+To install requirements in a virtual environment using Bash on Linux:
 
 ```bash
-python3 -m pip install -r ./requirements.txt
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r ./requirements.txt
 ```
 
 <!--
@@ -20,25 +20,25 @@ python -m pip install -r .\requirements.txt
 ```
 -->
 
-<!-- >📋  Describe how to set up the environment, e.g. pip/conda/docker commands, download datasets, etc... -->
-
 Datasets:
 
-(Need to update this part)
+The datasets are available from [GitHub Releases?](https://example.com). There are seven datasets and each have two CSVs containing access pattern traces: `25_filtered_delta.csv` and `50_filtered_delta.csv`.
+The distinction is explained in [Coffee](https://example.com).
+Each dataset should at least have these columns:
 
+- `pc` (hex string)
+- `delta_in` (integer)
+
+(Need to update this part)
 
 All training scripts take:
 
 - `trace_csv_path`: path to input CSV (example: `./dataset/25_filtered_delta.csv`)
 - `output_dir`: directory where logs/checkpoints are written (this is created if it is missing)
 
-Expected CSV columns:
-
-- `pc` (hex string)
-- `delta_in` (integer)
-
 ## Training
 
+Training and validation are done using the same command. If the provided output directory already contains a model, then it is used for validation. Otherwise, a new model is trained and then validated.
 Run commands from the repository root (`CoffeeResearchCode`).
 
 <!--
@@ -72,6 +72,8 @@ python .\next_n_Pattention_direct_multi-step\train.py .\dataset\25_filtered_delt
 ### LSTM models (Linux/macOS bash)
 
 ```bash
+source .venv/bin/activate # Only necessary if using a new Bash shell.
+
 # Autoregressive rollout model
 python3 ./next_n_lstm_autoregressive/train.py ./dataset/25_filtered_delta.csv ./outputLSTMAuto
 
@@ -82,6 +84,8 @@ python3 ./next_n_lstm_direct_multi-step/train.py ./dataset/25_filtered_delta.csv
 ### Pattention models (Linux/macOS bash)
 
 ```bash
+source .venv/bin/activate # Only necessary if using a new Bash shell.
+
 # Autoregressive rollout model
 python3 ./next_n_Pattention_autoregressive/train.py ./dataset/25_filtered_delta.csv ./outputPattenAuto
 
@@ -97,47 +101,7 @@ Each run writes to its output directory:
 - model checkpoints (`*.pt`)
 - label encodings (`*.json`)
 
-<!-- ## Training
-
-To train the model(s) in the paper, run this command:
-
-```train
-python train.py --input-data <path_to_data> --alpha 10 --beta 20
-```
-
->📋  Describe how to train the models, with example commands on how to train the models in your paper, including the full training procedure and appropriate hyperparameters.
-
-## Evaluation
-
-To evaluate my model on ImageNet, run:
-
-```eval
-python eval.py --model-file mymodel.pth --benchmark imagenet
-```
-
->📋  Describe how to evaluate the trained models on benchmarks reported in the paper, give commands that produce the results (section below).
-
-## Pre-trained Models
-
-You can download pretrained models here:
-
-- [My awesome model](https://drive.google.com/mymodel.pth) trained on ImageNet using parameters x,y,z.
-
->📋  Give a link to where/how the pretrained models can be downloaded and how they were trained (if applicable).  Alternatively you can have an additional column in your results table with a link to the models. -->
-
-<!-- ## Results
-
-Our model achieves the following performance on :
-
-### [Image Classification on ImageNet](https://paperswithcode.com/sota/image-classification-on-imagenet)
-
-| Model name         | Top 1 Accuracy  | Top 5 Accuracy |
-| ------------------ |---------------- | -------------- |
-| My awesome model   |     85%         |      95%       |
-
->📋  Include a table of results from your paper, and link back to the leaderboard for clarity and context. If your main result is a figure, include that figure and link to the command or notebook to reproduce it.
-
-## Contributing -->
+The top-1-next-n accuracies are reported near the bottom of `output.txt` as a scalar tensor value between 0 and 1.
 
 ## License
 
@@ -162,4 +126,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. -->
-
