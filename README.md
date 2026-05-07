@@ -1,6 +1,6 @@
 # Coffee: Going beyond the next hit for OS prefetching
 
-This repository is the official implementation of [Coffee: Going beyond the next hit for OS prefetching](https://arxiv.org/abs/2030.12345).  (Need to update the link here)
+This repository is the official implementation of Coffee: Going beyond the next hit for OS prefetching.
 
 ## Requirements
 
@@ -22,14 +22,12 @@ python -m pip install -r .\requirements.txt
 
 Datasets:
 
-The datasets are available from [GitHub Releases?](https://example.com). There are seven datasets and each have two CSVs containing access pattern traces: `25_filtered_delta.csv` and `50_filtered_delta.csv`.
-The distinction is explained in [Coffee](https://example.com).
+The datasets will be uploaded at a future date. There are seven datasets and each have two CSVs containing access pattern traces: `25_filtered_delta.csv` and `50_filtered_delta.csv`.  The distinction is explained in the Coffee paper.
+
 Each dataset should at least have these columns:
 
 - `pc` (hex string)
 - `delta_in` (integer)
-
-(Need to update this part)
 
 All training scripts take:
 
